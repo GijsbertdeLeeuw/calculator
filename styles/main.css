@@ -26,18 +26,18 @@ main {
     overflow: auto;
     padding-bottom: 50.5px;
     width: 100%;
-    min-height: calc(100vh - 50.5px);
+    min-height: calc(100vh - 30px);
     display: flex;
     flex-direction: column;
 }
 
 
 #calculator-container {
-    background-color: Black;
+    background-color: #262626;
     padding: 5px;
-    width: 500px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 2px #000;
+    border-width: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 20px palegreen;
     align-self: center;
     margin-top: auto;
     margin-bottom: auto;
@@ -45,22 +45,23 @@ main {
 
 
 #display-container {
+    margin: 20px;
     color: black;
     background-color: springgreen;
-    border-radius: 5px;
+    border-radius: 10px;
     border-color: black;
 }
 
-#equationDisplay {
+#equation-display {
 
     text-align: right;
     padding-right: 10px;
     line-height: 35px;
     height: 35px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
-#calculatorDisplay {
+#calculation-display {
     text-align: right;
     padding-right: 10px;
     line-height: 35px;
@@ -69,23 +70,79 @@ main {
     font-size: 30px;
 }
 
+
+
+
+
+.mode {
+margin: 10px;
+padding: 5px;
+}
+
+
 #calculatorGridContainer {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     margin: 0;  
-    height: 315px;
+    height: 540px;
     width: 100%; 
     align-items: stretch;
     box-sizing: border-box;
 }
 
-#calculatorGridContainer button {
+button {
+    height: 35px;
+    margin: 2px;
+/*    vertical-align: auto;*/
     box-sizing: border-box;
+    border-radius: 12px;
+    border-width: 4px;
+    border-color: maroon;
+    color: black;
     font-size: 20px;
 }
+
+button.mode {
+height: 35px;
+margin: 0px;
+text-align: center;
+font-size: 18px;
+}
+
+button:hover {
+border-color: yellow;
+color:white;
+}
+
+#scientific {
+    grid-column-start:3;
+    grid-column-end: 5;
+    border-color: yellow;
+}
+
+#basic {
+    grid-column-start:5;
+    grid-column-end: 7;
+}
+
+#source {
+    grid-column-start:3;
+    grid-column-end: 5;
+    grid-row-start: 8;
+    grid-row-end: 8;
+}
+
+#deg {
+    border-color: yellow;
+    }
+
+#rad {
+    border-color: maroon;
+    }
+
 
 
 sup {
@@ -100,153 +157,31 @@ sub {
     vertical-align: bottom; font-size: 0.6em;
 }
 
-
 .operator {
-font-size: 40px;
+/*font-size: 40px;*/
+}
+
+#clear {
+    grid-column-start:4;
+    grid-column-end: 5;
 }
 
 
+.scientific {
+display: none;
+}
 
-
-
-
+#source {
+display: inline;
+}
 
 
 .brackets {
-    background-color: #555577;
-    color: rgb(255, 255, 255);
-}
-
-.clear, .delete {
-    background-color: rgb(226, 91, 49);
-}
-
-.help {
-    background-color: pink;
-}
-
-decimal, .negation, {
-    background-color: #c5c5f9;
+font-size: 20px;
 }
 
 #equals {
     grid-column-start:5;
     grid-column-end: 7;
-    grid-row-start: 8;
-    grid-row-end: 9;
-    background-color: black;
 }
 
-.help-info {
-    display: none;
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 4;
-    grid-row-end: 8;
-    text-align: left;
-    margin-top: -110px;
-    padding: 0 10px;
-    color: #fff;
-}
-
-.selected {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
-    box-sizing: border-box;
-    transition: all 0.1s;
-}
-
-.hover-over {
-    background-color: rgb(128, 128, 128);
-}
-
-div[data-key] {
-    text-align: center;
-    line-height: 55px;
-    border-radius: 5px;
-}
-
-div[data-key-2] {
-    text-align: center;
-    line-height: 55px;
-    border-radius: 5px;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-
-}
-
-h2 {
-    text-align: center;
-    margin: 0;
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#footer {
-    position: relative;
-    height: 20px;
-    margin-bottom: 20px;
-    line-height: 20px;
-    padding-left: 10px;
-    color: black;
-}
-
-#footer a {
-color: white;
-}
-
-#footer a:hover {
-    opacity: 0.6;
-}
-
-
-/*
-#display-container {
-
-}
-
-
-
-
-#calculatorDisplay {
-    background-color: springgreen;
-    grid-area: display;
-    text-align: right;
-    padding-right: 10px;
-    line-height: 35px;
-    height: 35px;
-    margin-bottom: 5px;
-    font-size: 20px;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 0 10px 0.5px springgreen;
-}
-
-#equationDisplay {
-    background-color: springgreen;
-    grid-area: eDisplay;
-    text-align: right;
-    padding-right: 10px;
-    line-height: 35px;
-    height: 35px;
-    font-size: 20px;
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 10px 0.5px springgreen;
-}
-*/
